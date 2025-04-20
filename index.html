@@ -1985,6 +1985,141 @@ button[type="submit"] {
                     <i class="fas fa-code"></i>
                     <span>Paulo Sérgio [psgs]</span>
                 </a>
+                
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const logoContainer = document.querySelector('.logo');
+                        if (!logoContainer) return;
+                    
+                        // 1. Salvar a posição original do logo
+                        const originalRect = logoContainer.getBoundingClientRect();
+                        const originalPosition = {
+                            top: originalRect.top + window.scrollY,
+                            left: originalRect.left + window.scrollX
+                        };
+                    
+                        // 2. Criar cópia animada do logo
+                        const animatedLogo = logoContainer.cloneNode(true);
+                        animatedLogo.id = 'falling-logo';
+                        animatedLogo.style.position = 'absolute';
+                        animatedLogo.style.top = '-100px';
+                        animatedLogo.style.left = originalPosition.left + 'px';
+                        document.body.appendChild(animatedLogo);
+                    
+                        // 3. Configurar o texto animado
+                        const logoText = animatedLogo.querySelector('span');
+                        logoText.innerHTML = '</> <span class="name-part">Paulo Sérgio</span> <span class="tag-part">[psgs]</span>';
+                    
+                        // 4. Adicionar estilos dinâmicos
+                        const style = document.createElement('style');
+                        style.textContent = `
+                            #falling-logo {
+                                z-index: 10000;
+                                opacity: 0;
+                                animation: 
+                                    fade-in 0.5s 0.5s ease-out forwards,
+                                    fall-in 2s 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+                                    final-position 0.1s 3.5s forwards;
+                            }
+                            
+                            #falling-logo .fa-code {
+                                color: var(--primary);
+                                animation: spin 1.2s 0.5s ease-in-out;
+                            }
+                            
+                            #falling-logo .name-part {
+                                display: inline-block;
+                                animation: text-bounce 0.8s 1.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+                            }
+                            
+                            #falling-logo .tag-part {
+                                display: inline-block;
+                                opacity: 0;
+                                animation: 
+                                    fade-in 0.6s 2.5s ease-out forwards,
+                                    subtle-glow 2s 3.1s ease-in-out infinite alternate;
+                            }
+                            
+                            @keyframes fade-in {
+                                from { opacity: 0; }
+                                to { opacity: 1; }
+                            }
+                            
+                            @keyframes fall-in {
+                                0% { top: -100px; opacity: 0; }
+                                70% { opacity: 1; }
+                                100% { top: ${originalPosition.top}px; opacity: 1; }
+                            }
+                            
+                            @keyframes final-position {
+                                to { 
+                                    position: fixed; 
+                                    top: ${originalPosition.top}px;
+                                    left: ${originalPosition.left}px;
+                                    transform: none;
+                                }
+                            }
+                            
+                            @keyframes spin {
+                                0% { transform: rotate(0deg) scale(3); opacity: 0; }
+                                50% { transform: rotate(180deg) scale(1); opacity: 1; }
+                                100% { transform: rotate(360deg) scale(1); }
+                            }
+                            
+                            @keyframes text-bounce {
+                                0% { transform: translateY(0); }
+                                50% { transform: translateY(-20px); }
+                                100% { transform: translateY(0); }
+                            }
+                            
+                            @keyframes subtle-glow {
+                                from { text-shadow: 0 0 3px rgba(59, 130, 246, 0.3); }
+                                to { text-shadow: 0 0 8px rgba(59, 130, 246, 0.5); }
+                            }
+                        `;
+                        document.head.appendChild(style);
+                    
+                        // 5. Esconder o logo original durante a animação
+                        logoContainer.style.visibility = 'hidden';
+                        
+                        // 6. Restaurar o logo original após a animação
+                        setTimeout(() => {
+                            animatedLogo.remove();
+                            logoContainer.style.visibility = 'visible';
+                            // Adicionar classe com efeito final permanente
+                            logoContainer.classList.add('logo-final');
+                            
+                            const finalStyle = document.createElement('style');
+                            finalStyle.textContent = `
+                                .logo-final span {
+                                    display: inline-block;
+                                    animation: subtle-float 3s ease-in-out infinite;
+                                }
+                                
+                                .logo-final .fa-code {
+                                    animation: subtle-pulse 2s ease-in-out infinite;
+                                }
+                                
+                                @keyframes subtle-float {
+                                    0%, 100% { transform: translateY(0); }
+                                    50% { transform: translateY(-3px); }
+                                }
+                                
+                                @keyframes subtle-pulse {
+                                    0%, 100% { opacity: 1; }
+                                    50% { opacity: 0.8; }
+                                }
+                            `;
+                            document.head.appendChild(finalStyle);
+                        }, 4000); // Aumentei de 2500ms para 4000ms para acompanhar a animação mais longa
+                    });
+                </script>
+                
+               
+                
+
+
+
                 <ul class="nav-links">
                     <li><a href="#about">Sobre</a></li>
                     <li><a href="#skills">Habilidades</a></li>
