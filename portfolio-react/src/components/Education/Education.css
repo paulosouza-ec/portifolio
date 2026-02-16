@@ -1,0 +1,66 @@
+.education {
+    padding: 100px 0;
+    background-color: var(--light);
+}
+
+[data-theme="dark"] .education {
+    background-color: #0f172a;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.education-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+    text-align: justify;
+    line-height: 1.6;
+    hyphens: auto;
+    text-rendering: optimizeLegibility;
+}
+
+[data-theme="dark"] .education-card {
+    background-color: #1e293b;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    color: var(--text);
+}
+
+.education-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.education-icon {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(37, 99, 235, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--primary);
+    font-size: 30px;
+}
+
+.education-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+.education-card p {
+    margin-bottom: 10px;
+    color: var(--dark-gray);
+}
+
+.education-year {
+    font-weight: 600;
+    color: var(--primary);
+}
