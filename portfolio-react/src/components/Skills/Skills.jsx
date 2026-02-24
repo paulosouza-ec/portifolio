@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import './Skills.css';
 
-const Skills = () => {
+const Skills = ({ t }) => {
   const [activeTab, setActiveTab] = useState('tab-programming');
 
   const tabs = [
-    { id: 'tab-programming', icon: 'fas fa-code', label: 'Linguagens' },
-    { id: 'tab-web', icon: 'fas fa-globe', label: 'Web' },
-    { id: 'tab-database', icon: 'fas fa-database', label: 'Banco de Dados' },
-    { id: 'tab-tools', icon: 'fas fa-tools', label: 'Ferramentas' },
-    { id: 'tab-languages', icon: 'fas fa-language', label: 'Idiomas' },
+    { id: 'tab-programming', icon: 'fas fa-code', label: t.skills.tabs.programming },
+    { id: 'tab-web', icon: 'fas fa-globe', label: t.skills.tabs.web },
+    { id: 'tab-database', icon: 'fas fa-database', label: t.skills.tabs.database },
+    { id: 'tab-tools', icon: 'fas fa-tools', label: t.skills.tabs.tools },
+    { id: 'tab-languages', icon: 'fas fa-language', label: t.skills.tabs.languages },
   ];
 
   const skillsData = {
@@ -48,9 +48,67 @@ const Skills = () => {
       { icon: 'fab fa-linux', name: 'Linux', level: 'intermediate', tooltip: 'Linux - Intermediário' },
     ],
     'tab-languages': [
-      { icon: 'flag-icon-us', name: 'English', level: 'advanced', tooltip: 'Inglês - Avançado' },
-      { icon: 'fab fa-flag-spain', name: 'Español', level: 'intermediate', tooltip: 'Espanhol - Intermediário' },
-      { icon: 'fab fa-flag-brazil', name: 'Português 🇧🇷', level: 'advanced', tooltip: 'Português - Nativo' },
+      { 
+        flag: 'US', 
+        name: 'English', 
+        level: 'advanced', 
+        tooltip: 'Avançado', 
+        levelText: 'C1',
+        flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 504" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          <rect width="720" height="504" fill="#b22234"/>
+          <path d="M0,58H720m0,77.5H0m0,77.5H720m0,77.5H0m0,77.5H720m0,77.5H0" stroke="#fff" stroke-width="38.8"/>
+          <rect width="288" height="271" fill="#3c3b6e"/>
+          <g fill="#fff">
+            <g id="s18">
+              <g id="s9">
+                <g id="s5">
+                  <g id="s4">
+                    <path id="s" d="M24,11.6 30.8,39.6 12.9,22.3H35.1L17.2,39.6z"/>
+                    <use href="#s" y="54.3"/>
+                    <use href="#s" y="108.6"/>
+                    <use href="#s" y="162.9"/>
+                  </g>
+                  <use href="#s" y="217.2"/>
+                </g>
+                <use href="#s4" x="24" y="27.2"/>
+              </g>
+              <use href="#s9" x="48"/>
+            </g>
+            <use href="#s18" x="96"/>
+            <use href="#s9" x="192"/>
+            <use href="#s5" x="240"/>
+          </g>
+        </svg>`
+      },
+      { 
+        flag: 'ES', 
+        name: 'Español', 
+        level: 'intermediate', 
+        tooltip: 'Intermediário', 
+        levelText: 'B1',
+        flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 504" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          <rect width="720" height="504" fill="#c60b1e"/>
+          <rect width="720" height="252" y="126" fill="#ffc400"/>
+          <g transform="translate(168, 252)">
+            <circle cx="192" cy="0" r="50" fill="#c60b1e"/>
+            <circle cx="192" cy="0" r="35" fill="#ffc400"/>
+          </g>
+        </svg>`
+      },
+      { 
+        flag: 'BR', 
+        name: 'Português BR', 
+        level: 'advanced', 
+        tooltip: 'Nativo', 
+        levelText: 'Nativo',
+        flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 504" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          <rect width="720" height="504" fill="#009b3a"/>
+          <path d="M360,453.33 0,252 360,50.67 720,252z" fill="#fedf00"/>
+          <circle cx="360" cy="252" r="100.8" fill="#002776"/>
+          <path d="M440,252a80,80 0 0 1-160,0" fill="#fff"/>
+          <path d="M287,260 a75,75 0 0,0 146,0" fill="#002776"/>
+        </svg>`
+      },
     ],
   };
 
@@ -58,8 +116,8 @@ const Skills = () => {
     <section className="skills" id="skills">
       <div className="container">
         <div className="section-title">
-          <h2>Minhas Habilidades</h2>
-          <p>Tecnologias que domino e estou constantemente aprimorando</p>
+          <h2>{t.skills.title}</h2>
+          <p>{t.skills.subtitle}</p>
         </div>
 
         <div className="skills-tabs animate">
@@ -88,17 +146,28 @@ const Skills = () => {
                   {skillsData[tab.id].map((skill, index) => (
                     <div
                       key={index}
-                      className="skill-item"
+                      className={`skill-item ${skill.flag ? 'language-item' : ''}`}
                       data-level={skill.level}
                       data-tooltip={skill.tooltip}
                     >
-                      {skill.svg ? (
-                        <div dangerouslySetInnerHTML={{ __html: skill.svg }} />
+                      {skill.flag ? (
+                        <>
+                          <div className="flag-icon" dangerouslySetInnerHTML={{ __html: skill.flagSvg }} />
+                          <span className="language-name">{skill.name}</span>
+                          {skill.levelText && <span className="level-badge">{skill.levelText}</span>}
+                        </>
+                      ) : skill.svg ? (
+                        <>
+                          <div dangerouslySetInnerHTML={{ __html: skill.svg }} />
+                          <span>{skill.name}</span>
+                        </>
                       ) : (
-                        <i className={skill.icon}></i>
+                        <>
+                          <i className={skill.icon}></i>
+                          <span>{skill.name}</span>
+                        </>
                       )}
-                      <span>{skill.name}</span>
-                      <div className={`skill-level ${skill.level}`}></div>
+                      {!skill.flag && <div className={`skill-level ${skill.level}`}></div>}
                     </div>
                   ))}
                 </div>

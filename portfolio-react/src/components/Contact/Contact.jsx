@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Contact.css'
 
-const Contact = () => {
+const Contact = ({ t }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,17 +29,16 @@ const Contact = () => {
       <div className="container">
         <div className="section-title">
           <br />
-          <h2>Entre em Contato</h2>
-          <p>Vamos conversar sobre oportunidades e projetos</p>
+          <h2>{t.contact.title}</h2>
+          <p>{t.contact.subtitle}</p>
         </div>
         
         <div className="contact-content">
           <div className="contact-info">
             <div className="contact-card">
-              <h3>Vamos trabalhar juntos!</h3>
+              <h3>{t.contact.info.title}</h3>
               <p>
-                Estou sempre aberto a novas oportunidades, projetos desafiadores e colaborações interessantes. 
-                Se você tem uma ideia ou projeto que gostaria de discutir, não hesite em me contatar.
+                {t.contact.info.description}
               </p>
               
               <div className="contact-details">
@@ -75,7 +74,7 @@ const Contact = () => {
               </div>
               
               <div className="social-links">
-                <h4 className="animate delay-3">Me siga nas redes sociais</h4>
+                <h4 className="animate delay-3">{t.contact.info.follow}</h4>
                 <div className="social-icons animate delay-3">
                   <a href="https://www.linkedin.com/in/paulo-souza-862a67292/" className="social-icon" title="LinkedIn" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-linkedin-in"></i>
@@ -96,10 +95,10 @@ const Contact = () => {
           
           <div className="contact-form animate delay-1">
             <div className="form-card">
-              <h3>Se preferir, me envie uma mensagem por aqui.</h3>
+              <h3>{t.contact.form.title}</h3>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label htmlFor="name">Nome</label>
+                  <label htmlFor="name">{t.contact.form.name}</label>
                   <div className="input-with-icon">
                     <i className="fas fa-user"></i>
                     <input 
@@ -109,13 +108,13 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required 
-                      placeholder="Seu nome completo" 
+                      placeholder={t.contact.form.namePlaceholder} 
                     />
                   </div>
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email">{t.contact.form.email}</label>
                   <div className="input-with-icon">
                     <i className="fas fa-envelope"></i>
                     <input 
@@ -125,13 +124,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required 
-                      placeholder="seu@email.com" 
+                      placeholder={t.contact.form.emailPlaceholder} 
                     />
                   </div>
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="subject">Assunto</label>
+                  <label htmlFor="subject">{t.contact.form.subject}</label>
                   <div className="input-with-icon">
                     <i className="fas fa-tag"></i>
                     <input 
@@ -141,13 +140,13 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required 
-                      placeholder="Sobre o que deseja falar?" 
+                      placeholder={t.contact.form.subjectPlaceholder} 
                     />
                   </div>
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="message">Mensagem</label>
+                  <label htmlFor="message">{t.contact.form.message}</label>
                   <div className="textarea-with-icon">
                     <i className="fas fa-comment-alt"></i>
                     <textarea 
@@ -157,13 +156,13 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       required 
-                      placeholder="Escreva sua mensagem aqui..."
+                      placeholder={t.contact.form.messagePlaceholder}
                     ></textarea>
                   </div>
                 </div>
                 
                 <button type="submit" className="btn btn-primary">
-                  <i className="fas fa-paper-plane"></i> Enviar Mensagem
+                  <i className="fas fa-paper-plane"></i> {t.contact.form.send}
                 </button>
               </form>
             </div>

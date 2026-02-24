@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './Header.css'
 
-const Header = ({ theme, toggleTheme }) => {
+const Header = ({ theme, toggleTheme, language, toggleLanguage, t }) => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -31,12 +31,22 @@ const Header = ({ theme, toggleTheme }) => {
           </a>
 
           <ul className="nav-links">
-            <li><a href="#about" onClick={(e) => scrollToSection(e, 'about')}>Sobre</a></li>
-            <li><a href="#skills" onClick={(e) => scrollToSection(e, 'skills')}>Habilidades</a></li>
-            <li><a href="#projects" onClick={(e) => scrollToSection(e, 'projects')}>Projetos</a></li>
-            <li><a href="#experience" onClick={(e) => scrollToSection(e, 'experience')}>Experiência</a></li>
-            <li><a href="#education" onClick={(e) => scrollToSection(e, 'education')}>Formação</a></li>
-            <li><a href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>Contato</a></li>
+            <li><a href="#about" onClick={(e) => scrollToSection(e, 'about')}>{t.nav.about}</a></li>
+            <li><a href="#skills" onClick={(e) => scrollToSection(e, 'skills')}>{t.nav.skills}</a></li>
+            <li><a href="#projects" onClick={(e) => scrollToSection(e, 'projects')}>{t.nav.projects}</a></li>
+            <li><a href="#experience" onClick={(e) => scrollToSection(e, 'experience')}>{t.nav.experience}</a></li>
+            <li><a href="#education" onClick={(e) => scrollToSection(e, 'education')}>{t.nav.education}</a></li>
+            <li><a href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>{t.nav.contact}</a></li>
+            <li className="language-toggle-container">
+              <button 
+                className="language-toggle" 
+                aria-label="Alternar idioma"
+                onClick={toggleLanguage}
+              >
+                <span className="flag-icon">{language === 'pt-BR' ? '🇧🇷' : '🇺🇸'}</span>
+                <span className="lang-text">{language === 'pt-BR' ? 'PT' : 'EN'}</span>
+              </button>
+            </li>
             <li className="theme-toggle-container">
               <button 
                 id="themeToggle" 

@@ -1,7 +1,22 @@
 import './Experience.css'
 
-const Experience = () => {
+const Experience = ({ t }) => {
   const experiences = [
+
+     {
+      title: 'Desenvolvedor FullStack',
+      company: 'V-Lab  / CAPES',
+      description: 'Responsável por capacitar estudantes de Ensino Médio e EJA em habilidades de dados (SQL, Python, Looker, Google Sheets), promovendo a aplicação prática para prepará-los para o mercado de tecnologia. Desenvolvi atividades que integram conceitos técnicos e demandas reais, visando a inserção profissional e transformação social por meio da educação.',
+      date: '10/2025 - Atualmente'
+    },
+
+    {
+      title: 'Estágio em Ciência de dados',
+      company: 'Aicury',
+      description: 'Responsável por capacitar estudantes de Ensino Médio e EJA em habilidades de dados (SQL, Python, Looker, Google Sheets), promovendo a aplicação prática para prepará-los para o mercado de tecnologia. Desenvolvi atividades que integram conceitos técnicos e demandas reais, visando a inserção profissional e transformação social por meio da educação.',
+      date: '09/2025 - Atualmente'
+    },
+    
     {
       title: 'Tutor de tecnologia',
       company: 'Cesar School',
@@ -32,8 +47,8 @@ const Experience = () => {
     <section className="experience" id="experience">
       <div className="container">
         <div className="section-title">
-          <h2>Experiência</h2>
-          <p>Minha jornada profissional e acadêmica</p>
+          <h2>{t.experience.title}</h2>
+          <p>{t.experience.subtitle}</p>
         </div>
         <div className="timeline">
           {experiences.map((exp, index) => (

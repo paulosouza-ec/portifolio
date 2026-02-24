@@ -1,14 +1,14 @@
 import './About.css'
 import drawImage from '../../assets/draw.png'
 
-const About = () => {
+const About = ({ t }) => {
   return (
     <section className="about" id="about">
       <div className="about-pattern"></div>
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title animate">Sobre Mim</h2>
-          <p className="section-subtitle animate delay-1">Conheça a pessoa por trás do código</p>
+          <h2 className="section-title animate">{t.about.title}</h2>
+          <p className="section-subtitle animate delay-1">{t.about.subtitle}</p>
         </div>
         
         <div className="about-grid">
@@ -30,15 +30,15 @@ const About = () => {
           <div className="about-content">
             <div className="about-text animate delay-1">
               <div className="text-block">
-                <p>Sou estudante de Engenharia da Computação na UFPE, vivo em Recife. Desde criança sempre fui fascinado por tecnologia e como ela pode transformar o mundo.</p>
+                <p>{t.about.intro}</p>
               </div>
               
               <div className="text-block">
-                <p>Atualmente, estou no último ano do curso e tenho me dedicado ao estudo de desenvolvimento de software, inteligência artificial, ciência de dados, testes e qualidade de software</p>
+                <p>{t.about.description}</p>
               </div>
               
               <div className="text-block">
-                <p>Acredito que a tecnologia deve ser acessível e útil para todos, por isso, dedico o meu conhecimento técnico, na maioria das vezes, à resolução de problemas sociais.</p>
+                <p>{t.about.focus}</p>
               </div>
             </div>
             
@@ -47,15 +47,15 @@ const About = () => {
               <div className="timeline-item">
                 <div className="timeline-badge"><i className="fas fa-graduation-cap"></i></div>
                 <div className="timeline-content">
-                  <h3>Engenharia da Computação</h3>
-                  <p>UFPE | 2020-2026</p>
+                  <h3>{t.about.degree}</h3>
+                  <p>{t.about.university}</p>
                 </div>
               </div>
               <div className="timeline-item">
                 <div className="timeline-badge"><i className="fas fa-graduation-cap"></i></div>
                 <div className="timeline-content">
-                  <h3>Redes de Computadores</h3>
-                  <p>ETE Governador Eduardo Campos | 2018</p>
+                  <h3>{t.about.technicalDegree}</h3>
+                  <p>{t.about.technicalSchool}</p>
                 </div>
               </div>
             </div>

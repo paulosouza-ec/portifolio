@@ -2,18 +2,13 @@ import { useEffect, useState } from 'react'
 import './Hero.css'
 import mainImage from '../../assets/main.jpg'
 
-const Hero = () => {
+const Hero = ({ t }) => {
   const [text, setText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
   const [loopNum, setLoopNum] = useState(0)
   const [delta, setDelta] = useState(200)
 
-  const toRotate = [
-    "Estudante de Engenharia da Computação",
-    "Desenvolvedor de software",
-    "Entusiasta de IA e dados",
-    "Solucionador de Problemas"
-  ]
+  const toRotate = t.hero.roles
   const period = 2000
 
   useEffect(() => {
@@ -63,22 +58,22 @@ const Hero = () => {
       <div className="hero-background"></div>
       <div className="container hero-content">
         <div className="hero-text animate">
-          <h6 className="hero-subtitle">Olá, eu sou</h6>
-          <h1 className="hero-title">Paulo Sérgio</h1>
+          <h6 className="hero-subtitle">{t.hero.greeting}</h6>
+          <h1 className="hero-title">{t.hero.name}</h1>
           <h2 className="hero-role">
             <span className="txt-rotate">
               <span className="wrap">{text}</span>
             </span>
           </h2>
           <p className="hero-description">
-            Transformando ideias em soluções tecnológicas inovadoras com código criativo e pensamento analítico.
+            {t.hero.description}
           </p>
           <div className="hero-buttons">
             <a href="#projects" className="btn btn-primary btn-hero" onClick={(e) => scrollToSection(e, 'projects')}>
-              <i className="fas fa-code"></i> Ver Projetos
+              <i className="fas fa-code"></i> {t.hero.cta}
             </a>
             <a href="#contact" className="btn btn-outline btn-hero" onClick={(e) => scrollToSection(e, 'contact')}>
-              <i className="fas fa-paper-plane"></i> Contate-me
+              <i className="fas fa-paper-plane"></i> {t.hero.contact}
             </a>
           </div>
         </div>

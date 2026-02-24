@@ -1,6 +1,6 @@
 import './Education.css'
 
-const Education = () => {
+const Education = ({ t }) => {
   const educationItems = [
     {
       icon: 'fas fa-graduation-cap',
@@ -50,8 +50,8 @@ const Education = () => {
     <section className="education" id="education">
       <div className="container">
         <div className="section-title">
-          <h2>Formação Acadêmica e Cursos complementares</h2>
-          <p>Minha trajetória de aprendizado</p>
+          <h2>{t.education.title}</h2>
+          <p>{t.education.subtitle}</p>
           <br />
         </div>
         <div className="education-grid">
