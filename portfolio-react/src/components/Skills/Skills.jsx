@@ -54,29 +54,29 @@ const Skills = ({ t }) => {
         level: 'advanced', 
         tooltip: 'Avançado', 
         levelText: 'C1',
-        flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 504" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-          <rect width="720" height="504" fill="#b22234"/>
-          <path d="M0,58H720m0,77.5H0m0,77.5H720m0,77.5H0m0,77.5H720m0,77.5H0" stroke="#fff" stroke-width="38.8"/>
-          <rect width="288" height="271" fill="#3c3b6e"/>
+        flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7410 3900" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          <rect width="7410" height="3900" fill="#b22234"/>
+          <path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#fff" stroke-width="300"/>
+          <rect width="2964" height="2100" fill="#3c3b6e"/>
           <g fill="#fff">
             <g id="s18">
               <g id="s9">
                 <g id="s5">
                   <g id="s4">
-                    <path id="s" d="M24,11.6 30.8,39.6 12.9,22.3H35.1L17.2,39.6z"/>
-                    <use href="#s" y="54.3"/>
-                    <use href="#s" y="108.6"/>
-                    <use href="#s" y="162.9"/>
+                    <path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z"/>
+                    <use href="#s" y="420"/>
+                    <use href="#s" y="840"/>
+                    <use href="#s" y="1260"/>
                   </g>
-                  <use href="#s" y="217.2"/>
+                  <use href="#s" y="1680"/>
                 </g>
-                <use href="#s4" x="24" y="27.2"/>
+                <use href="#s4" x="247" y="210"/>
               </g>
-              <use href="#s9" x="48"/>
+              <use href="#s9" x="494"/>
             </g>
-            <use href="#s18" x="96"/>
-            <use href="#s9" x="192"/>
-            <use href="#s5" x="240"/>
+            <use href="#s18" x="988"/>
+            <use href="#s9" x="1976"/>
+            <use href="#s5" x="2470"/>
           </g>
         </svg>`
       },
@@ -86,12 +86,12 @@ const Skills = ({ t }) => {
         level: 'intermediate', 
         tooltip: 'Intermediário', 
         levelText: 'B1',
-        flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 504" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-          <rect width="720" height="504" fill="#c60b1e"/>
-          <rect width="720" height="252" y="126" fill="#ffc400"/>
-          <g transform="translate(168, 252)">
-            <circle cx="192" cy="0" r="50" fill="#c60b1e"/>
-            <circle cx="192" cy="0" r="35" fill="#ffc400"/>
+        flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 500" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          <rect width="750" height="500" fill="#c60b1e"/>
+          <rect width="750" height="250" y="125" fill="#ffc400"/>
+          <g transform="translate(175, 250)">
+            <circle cx="200" cy="0" r="50" fill="#c60b1e"/>
+            <circle cx="200" cy="0" r="35" fill="#ffc400"/>
           </g>
         </svg>`
       },
