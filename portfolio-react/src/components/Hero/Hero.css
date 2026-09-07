@@ -91,68 +91,148 @@
 .hero-image {
     position: relative;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-wrapper {
     position: relative;
     display: inline-block;
+    padding: 10px;
+}
+
+.image-glow {
+    position: absolute;
+    inset: 15px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.45), rgba(124, 58, 237, 0.35), rgba(6, 182, 212, 0.35));
+    border-radius: 30px;
+    filter: blur(28px);
+    opacity: 0.65;
+    z-index: 0;
+    animation: pulseGlow 4s ease-in-out infinite alternate;
 }
 
 .hero-image img {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    max-width: 400px;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-    border: 5px solid var(--white);
-    transition: transform 0.5s;
+    max-width: 380px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+    border: 4px solid var(--white);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
+    display: block;
+}
+
+[data-theme="dark"] .hero-image img {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .hero-image:hover img {
-    transform: scale(1.03);
+    transform: scale(1.02);
+    box-shadow: 0 25px 60px rgba(37, 99, 235, 0.25);
 }
 
 .tech-icons {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    inset: 0;
     pointer-events: none;
+    z-index: 2;
 }
 
-.tech-icons i {
+/* Glassmorphism Floating Tech Badges */
+.tech-badge {
     position: absolute;
-    font-size: 40px;
-    opacity: 0.8;
-    animation: float 6s ease-in-out infinite;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04);
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
 
-.js-icon {
-    top: -20px;
-    right: -20px;
-    color: #f0db4f;
-    animation-delay: 0.2s;
+[data-theme="dark"] .tech-badge {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.45);
 }
 
-.python-icon {
-    bottom: -20px;
-    left: -20px;
-    color: #3776ab;
-    animation-delay: 0.4s;
+/* Position and Individual Floating animations */
+.badge-python {
+    top: 6%;
+    left: -18px;
+    animation: floatA 5s ease-in-out infinite;
+}
+.badge-python i { color: #3776ab; }
+.badge-python:hover {
+    transform: scale(1.22) translateY(-6px) !important;
+    box-shadow: 0 15px 30px rgba(55, 118, 171, 0.45);
 }
 
-.react-icon {
-    top: 50%;
-    right: -30px;
-    color: #61dafb;
-    animation-delay: 0.6s;
+.badge-react {
+    top: 4%;
+    right: -15px;
+    animation: floatB 5.5s ease-in-out infinite 0.4s;
+}
+.badge-react i { color: #61dafb; }
+.badge-react:hover {
+    transform: scale(1.22) translateY(-6px) !important;
+    box-shadow: 0 15px 30px rgba(97, 218, 251, 0.5);
 }
 
-.db-icon {
-    bottom: 20%;
-    left: -30px;
-    color: var(--accent);
-    animation-delay: 0.8s;
+.badge-java {
+    top: 42%;
+    left: -28px;
+    animation: floatC 5.8s ease-in-out infinite 0.8s;
+}
+.badge-java i { color: #e76f00; }
+.badge-java:hover {
+    transform: scale(1.22) translateY(-6px) !important;
+    box-shadow: 0 15px 30px rgba(231, 111, 0, 0.45);
+}
+
+.badge-js {
+    top: 40%;
+    right: -28px;
+    animation: floatA 5.2s ease-in-out infinite 1.2s;
+}
+.badge-js i { color: #f7df1e; }
+.badge-js:hover {
+    transform: scale(1.22) translateY(-6px) !important;
+    box-shadow: 0 15px 30px rgba(247, 223, 30, 0.45);
+}
+
+.badge-angular {
+    bottom: 8%;
+    left: -15px;
+    animation: floatB 5.6s ease-in-out infinite 1.6s;
+}
+.badge-angular i { color: #dd0031; }
+.badge-angular:hover {
+    transform: scale(1.22) translateY(-6px) !important;
+    box-shadow: 0 15px 30px rgba(221, 0, 49, 0.45);
+}
+
+.badge-php {
+    bottom: 6%;
+    right: -18px;
+    animation: floatC 6s ease-in-out infinite 2s;
+}
+.badge-php i { color: #777bb4; }
+.badge-php:hover {
+    transform: scale(1.22) translateY(-6px) !important;
+    box-shadow: 0 15px 30px rgba(119, 123, 180, 0.45);
 }
 
 .hero-scroll {
@@ -182,10 +262,24 @@
 }
 
 /* Animations */
-@keyframes float {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-    100% { transform: translateY(0) rotate(0deg); }
+@keyframes pulseGlow {
+    0% { transform: scale(0.95); opacity: 0.5; }
+    100% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes floatA {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+@keyframes floatB {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(10px) rotate(-3deg); }
+}
+
+@keyframes floatC {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(-2deg); }
 }
 
 @keyframes bounce {
@@ -233,6 +327,22 @@
     }
 }
 
+@media (max-width: 768px) {
+    .tech-badge {
+        width: 44px;
+        height: 44px;
+        font-size: 22px;
+        border-radius: 12px;
+    }
+    
+    .badge-python { left: -8px; top: 4%; }
+    .badge-react { right: -6px; top: 2%; }
+    .badge-java { left: -14px; top: 42%; }
+    .badge-js { right: -14px; top: 40%; }
+    .badge-angular { left: -8px; bottom: 6%; }
+    .badge-php { right: -8px; bottom: 4%; }
+}
+
 @media (max-width: 576px) {
     .hero-title {
         font-size: 36px;
@@ -251,4 +361,22 @@
         width: 100%;
         justify-content: center;
     }
+
+    .hero-image img {
+        max-width: 300px;
+    }
+
+    .tech-badge {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
+    .badge-python { left: 0px; top: 2%; }
+    .badge-react { right: 0px; top: 2%; }
+    .badge-java { left: -5px; top: 42%; }
+    .badge-js { right: -5px; top: 40%; }
+    .badge-angular { left: 0px; bottom: 2%; }
+    .badge-php { right: 0px; bottom: 2%; }
 }

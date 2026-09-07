@@ -316,6 +316,7 @@
 .fa-js-square { color: #F7DF1E; }
 .fa-java { color: #007396; }
 .fa-c { color: #00599C; }
+.fa-php { color: #777BB4; }
 .fa-html5 { color: #E34F26; }
 .fa-css3-alt { color: #1572B6; }
 .fa-react { color: #61DAFB; }
@@ -334,6 +335,7 @@
 [data-theme="dark"] .fa-python { color: #4B8BBE; }
 [data-theme="dark"] .fa-java { color: #5382A1; }
 [data-theme="dark"] .fa-c { color: #659AD2; }
+[data-theme="dark"] .fa-php { color: #8892BF; }
 [data-theme="dark"] .fa-css3-alt { color: #2965F1; }
 [data-theme="dark"] .flag-icon-us { color: #B22234; }
 [data-theme="dark"] .fa-flag-brazil { color: #00BC3F; }

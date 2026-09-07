@@ -79,12 +79,27 @@ const Hero = ({ t }) => {
         </div>
         <div className="hero-image animate delay-1">
           <div className="image-wrapper">
+            <div className="image-glow"></div>
             <img src={mainImage} alt="Paulo Sérgio" />
             <div className="tech-icons">
-              <i className="fab fa-js-square js-icon"></i>
-              <i className="fab fa-python python-icon"></i>
-              <i className="fab fa-react react-icon"></i>
-              <i className="fas fa-database db-icon"></i>
+              <div className="tech-badge badge-python" title="Python">
+                <i className="fab fa-python"></i>
+              </div>
+              <div className="tech-badge badge-react" title="React">
+                <i className="fab fa-react"></i>
+              </div>
+              <div className="tech-badge badge-java" title="Java">
+                <i className="fab fa-java"></i>
+              </div>
+              <div className="tech-badge badge-js" title="JavaScript">
+                <i className="fab fa-js-square"></i>
+              </div>
+              <div className="tech-badge badge-angular" title="Angular">
+                <i className="fab fa-angular"></i>
+              </div>
+              <div className="tech-badge badge-php" title="PHP">
+                <i className="fab fa-php"></i>
+              </div>
             </div>
           </div>
         </div>

@@ -16,8 +16,9 @@ const Skills = ({ t }) => {
     'tab-programming': [
       { icon: 'fab fa-python', name: 'Python', level: 'advanced', tooltip: 'Python - Avançado' },
       { icon: 'fab fa-js-square', name: 'JavaScript', level: 'intermediate', tooltip: 'JavaScript - Intermediário' },
-      { icon: 'fab fa-java', name: 'Java', level: 'basic', tooltip: 'Java - Básico' },
+      { icon: 'fab fa-java', name: 'Java', level: 'intermediate', tooltip: 'Java - Intermediário' },
       { icon: 'fas fa-c', name: 'C/C++', level: 'intermediate', tooltip: 'C/C++ - Intermediário' },
+      { icon: 'fab fa-php', name: 'PHP', level: 'intermediate', tooltip: 'PHP - Intermediário' },
     ],
     'tab-web': [
       { icon: 'fab fa-html5', name: 'HTML5', level: 'intermediate', tooltip: 'HTML5 - Intermediário' },
@@ -36,14 +37,14 @@ const Skills = ({ t }) => {
       { icon: 'fab fa-angular', name: 'Angular', level: 'intermediate', tooltip: 'Angular - Intermediário' },
     ],
     'tab-database': [
-      { icon: 'fas fa-database', name: 'MySQL', level: 'intermediate', tooltip: 'MySQL - Intermediário' },
+      { icon: 'fas fa-database', name: 'MySQL', level: 'advanced', tooltip: 'MySQL - Avançado' },
       { icon: 'fas fa-database', name: 'MongoDB', level: 'intermediate', tooltip: 'MongoDB - Intermediário' },
       { icon: 'fas fa-database', name: 'PostgreSQL', level: 'intermediate', tooltip: 'PostgreSQL - Intermediário' },
       { icon: 'fas fa-database', name: 'Firebase', level: 'basic', tooltip: 'Firebase - Básico' },
     ],
     'tab-tools': [
       { icon: 'fab fa-git-alt', name: 'Git', level: 'advanced', tooltip: 'Git - Avançado' },
-      { icon: 'fab fa-docker', name: 'Docker', level: 'basic', tooltip: 'Docker - Básico' },
+      { icon: 'fab fa-docker', name: 'Docker', level: 'Intermediate', tooltip: 'Docker - Intermediário' },
       { icon: 'fab fa-aws', name: 'AWS', level: 'basic', tooltip: 'AWS - Básico' },
       { icon: 'fab fa-linux', name: 'Linux', level: 'intermediate', tooltip: 'Linux - Intermediário' },
     ],
@@ -53,7 +54,7 @@ const Skills = ({ t }) => {
         name: 'English', 
         level: 'advanced', 
         tooltip: 'Avançado', 
-        levelText: 'C1',
+        levelText: 'C2',
         flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7410 3900" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
           <rect width="7410" height="3900" fill="#b22234"/>
           <path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#fff" stroke-width="300"/>
@@ -107,6 +108,18 @@ const Skills = ({ t }) => {
           <circle cx="360" cy="252" r="100.8" fill="#002776"/>
           <path d="M440,252a80,80 0 0 1-160,0" fill="#fff"/>
           <path d="M287,260 a75,75 0 0,0 146,0" fill="#002776"/>
+        </svg>`
+      },
+      { 
+        flag: 'FR', 
+        name: 'Français', 
+        level: 'basic', 
+        tooltip: 'Básico', 
+        levelText: 'A1',
+        flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          <rect width="300" height="600" fill="#002654"/>
+          <rect x="300" width="300" height="600" fill="#ffffff"/>
+          <rect x="600" width="300" height="600" fill="#ce1126"/>
         </svg>`
       },
     ],
