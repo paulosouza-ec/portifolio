@@ -20,7 +20,7 @@ const Contact = ({ t }) => {
     e.preventDefault()
     // Aqui você pode adicionar a lógica para enviar o email
     console.log('Form submitted:', formData)
-    alert('Mensagem enviada! (integração com backend necessária)')
+    alert(t.contact.form.alert || 'Mensagem enviada! (integração com backend necessária)')
     setFormData({ name: '', email: '', subject: '', message: '' })
   }
 
@@ -47,7 +47,7 @@ const Contact = ({ t }) => {
                     <i className="fas fa-envelope"></i>
                   </div>
                   <div className="contact-text">
-                    <h4>Email</h4>
+                    <h4>{t.contact.info.emailLabel || 'Email'}</h4>
                     <a href="mailto:paulosouza-ec@gmail.com">paulosouza-ec@gmail.com</a>
                   </div>
                 </div>
@@ -57,7 +57,7 @@ const Contact = ({ t }) => {
                     <i className="fas fa-phone-alt"></i>
                   </div>
                   <div className="contact-text">
-                    <h4>Telefone</h4>
+                    <h4>{t.contact.info.phoneLabel || 'Telefone'}</h4>
                     <a href="tel:+5581986212657">+55 (81) 98621-2657</a>
                   </div>
                 </div>
@@ -67,8 +67,8 @@ const Contact = ({ t }) => {
                     <i className="fas fa-map-marker-alt"></i>
                   </div>
                   <div className="contact-text">
-                    <h4>Localização</h4>
-                    <span>Recife, PE - Brasil</span>
+                    <h4>{t.contact.info.locationLabel || 'Localização'}</h4>
+                    <span>{t.contact.info.location || 'Recife, PE - Brasil'}</span>
                   </div>
                 </div>
               </div>

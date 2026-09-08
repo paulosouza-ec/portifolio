@@ -40,14 +40,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     z-index: 1;
 }
 
 .about-photo {
     position: relative;
-    padding: 30px;
+    padding: 20px 30px 30px;
+    margin-top: -20px;
 }
 
 .photo-container {
@@ -216,4 +217,15 @@
     0% { transform: translateY(0) rotate(0deg); }
     50% { transform: translateY(-20px) rotate(5deg); }
     100% { transform: translateY(0) rotate(0deg); }
+}
+
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-photo {
+        margin-top: 0;
+    }
 }

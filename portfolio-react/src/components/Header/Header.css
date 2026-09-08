@@ -38,11 +38,14 @@ nav {
 
 .nav-links {
     display: flex;
+    align-items: center;
     list-style: none;
 }
 
 .nav-links li {
     margin-left: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
@@ -51,6 +54,8 @@ nav {
     font-weight: 500;
     transition: color 0.3s;
     position: relative;
+    display: inline-flex;
+    align-items: center;
 }
 
 .nav-links a::after {
@@ -92,15 +97,16 @@ nav {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text);
   transition: all 0.3s;
-  padding: 8px 12px;
+  padding: 6px 10px;
   border-radius: 8px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   font-weight: 500;
+  line-height: 1;
 }
 
 .language-toggle:hover {
@@ -109,13 +115,16 @@ nav {
 }
 
 .flag-icon {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .lang-text {
   font-size: 14px;
   font-weight: 600;
+  line-height: 1;
 }
 
 .theme-toggle {
@@ -125,11 +134,12 @@ nav {
     font-size: 18px;
     color: var(--text);
     transition: all 0.3s;
-    padding: 8px;
+    padding: 6px;
     border-radius: 50%;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    line-height: 1;
 }
 
 .theme-toggle:hover {

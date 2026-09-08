@@ -54,7 +54,7 @@ const Skills = ({ t }) => {
         name: 'English', 
         level: 'advanced', 
         tooltip: 'Avançado', 
-        levelText: 'C2',
+        levelText: 'C1',
         flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7410 3900" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
           <rect width="7410" height="3900" fill="#b22234"/>
           <path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#fff" stroke-width="300"/>
@@ -100,7 +100,7 @@ const Skills = ({ t }) => {
         flag: 'BR', 
         name: 'Português BR', 
         level: 'advanced', 
-        tooltip: 'Nativo', 
+        isNative: true,
         levelText: 'Nativo',
         flagSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 504" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
           <rect width="720" height="504" fill="#009b3a"/>
@@ -156,33 +156,41 @@ const Skills = ({ t }) => {
                 className={`tab-pane ${activeTab === tab.id ? 'active' : ''}`}
               >
                 <div className="skills-grid">
-                  {skillsData[tab.id].map((skill, index) => (
-                    <div
-                      key={index}
-                      className={`skill-item ${skill.flag ? 'language-item' : ''}`}
-                      data-level={skill.level}
-                      data-tooltip={skill.tooltip}
-                    >
-                      {skill.flag ? (
-                        <>
-                          <div className="flag-icon" dangerouslySetInnerHTML={{ __html: skill.flagSvg }} />
-                          <span className="language-name">{skill.name}</span>
-                          {skill.levelText && <span className="level-badge">{skill.levelText}</span>}
-                        </>
-                      ) : skill.svg ? (
-                        <>
-                          <div dangerouslySetInnerHTML={{ __html: skill.svg }} />
-                          <span>{skill.name}</span>
-                        </>
-                      ) : (
-                        <>
-                          <i className={skill.icon}></i>
-                          <span>{skill.name}</span>
-                        </>
-                      )}
-                      {!skill.flag && <div className={`skill-level ${skill.level}`}></div>}
-                    </div>
-                  ))}
+                  {skillsData[tab.id].map((skill, index) => {
+                    const levelLabel = t.skills.levels[skill.level.toLowerCase()] || skill.level;
+                    const tooltipText = skill.flag 
+                      ? (skill.isNative ? (t.skills.native || 'Nativo') : levelLabel)
+                      : `${skill.name} - ${levelLabel}`;
+                    const badgeText = skill.isNative ? (t.skills.native || 'Nativo') : skill.levelText;
+
+                    return (
+                      <div
+                        key={index}
+                        className={`skill-item ${skill.flag ? 'language-item' : ''}`}
+                        data-level={skill.level}
+                        data-tooltip={tooltipText}
+                      >
+                        {skill.flag ? (
+                          <>
+                            <div className="flag-icon" dangerouslySetInnerHTML={{ __html: skill.flagSvg }} />
+                            <span className="language-name">{skill.name}</span>
+                            {skill.levelText && <span className="level-badge">{badgeText}</span>}
+                          </>
+                        ) : skill.svg ? (
+                          <>
+                            <div dangerouslySetInnerHTML={{ __html: skill.svg }} />
+                            <span>{skill.name}</span>
+                          </>
+                        ) : (
+                          <>
+                            <i className={skill.icon}></i>
+                            <span>{skill.name}</span>
+                          </>
+                        )}
+                        {!skill.flag && <div className={`skill-level ${skill.level.toLowerCase()}`}></div>}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             ))}

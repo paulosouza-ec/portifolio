@@ -40,7 +40,7 @@ const Header = ({ theme, toggleTheme, language, toggleLanguage, t }) => {
             <li className="language-toggle-container">
               <button 
                 className="language-toggle" 
-                aria-label="Alternar idioma"
+                aria-label={t.header?.ariaLang || 'Alternar idioma'}
                 onClick={toggleLanguage}
               >
                 <span className="flag-icon">{language === 'pt-BR' ? '🇧🇷' : '🇺🇸'}</span>
@@ -51,7 +51,7 @@ const Header = ({ theme, toggleTheme, language, toggleLanguage, t }) => {
               <button 
                 id="themeToggle" 
                 className="theme-toggle" 
-                aria-label="Alternar tema"
+                aria-label={t.header?.ariaTheme || 'Alternar tema'}
                 onClick={toggleTheme}
               >
                 <i className={theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'}></i>

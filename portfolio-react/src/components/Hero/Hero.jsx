@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Hero.css'
-import mainImage from '../../assets/main.jpg'
+import mainImage from '../../assets/main.png'
 
 const Hero = ({ t }) => {
   const [text, setText] = useState('')
@@ -12,12 +12,18 @@ const Hero = ({ t }) => {
   const period = 2000
 
   useEffect(() => {
+    setText('')
+    setLoopNum(0)
+    setIsDeleting(false)
+  }, [t])
+
+  useEffect(() => {
     const ticker = setInterval(() => {
       tick()
     }, delta)
 
     return () => clearInterval(ticker)
-  }, [text, delta, isDeleting, loopNum])
+  }, [text, delta, isDeleting, loopNum, toRotate])
 
   const tick = () => {
     const i = loopNum % toRotate.length
